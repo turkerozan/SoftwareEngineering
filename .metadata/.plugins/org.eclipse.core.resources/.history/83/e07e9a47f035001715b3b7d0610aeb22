@@ -15,11 +15,11 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import com.toedter.calendar.JDateChooser;
 
 public class Company extends JFrame {
 
 	private JPanel contentPane;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -37,7 +37,6 @@ public class Company extends JFrame {
 		});
 	}
 	Connection connection = null;
-	private JTextField istek;
 	
 	/**
 	 * Create the frame.
@@ -49,7 +48,7 @@ public class Company extends JFrame {
 		}
 		connection = sqlConnection.dbConnector();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 337, 300);
+		setBounds(100, 100, 527, 399);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -75,38 +74,14 @@ public class Company extends JFrame {
 				}
 			}
 		});
-		addE.setBounds(142, 227, 169, 23);
+		addE.setBounds(354, 61, 135, 23);
 		contentPane.add(addE);
 		
-		JButton btnArrangeReservation = new JButton("Arrange Reservation");
-		btnArrangeReservation.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Randevu rande = new Randevu(x);
-			}
-		});
-		btnArrangeReservation.setBounds(142, 193, 169, 23);
-		contentPane.add(btnArrangeReservation);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(37, 95, 452, 241);
+		contentPane.add(scrollPane);
 		
-		istek = new JTextField();
-		istek.setBounds(10, 79, 301, 101);
-		contentPane.add(istek);
-		istek.setColumns(10);
-		
-		JLabel lblIstekleriniz = new JLabel("\u0130stekleriniz:");
-		lblIstekleriniz.setBounds(10, 56, 63, 14);
-		contentPane.add(lblIstekleriniz);
-		
-		JLabel lblTarih = new JLabel("Tarih:");
-		lblTarih.setBounds(170, 54, 40, 14);
-		contentPane.add(lblTarih);
-		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(220, 48, 91, 20);
-		contentPane.add(dateChooser);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ozant\\Documents\\GitHub\\SoftwareEngineering\\SoftwareProject\\img\\login.png"));
-		lblNewLabel.setBounds(-30, -25, 341, 292);
-		contentPane.add(lblNewLabel);
+		table = new JTable();
+		scrollPane.setViewportView(table);
 	}
 }

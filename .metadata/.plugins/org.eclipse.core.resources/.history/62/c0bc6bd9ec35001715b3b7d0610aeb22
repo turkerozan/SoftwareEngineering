@@ -52,7 +52,7 @@ public class EmployeeAdd extends JFrame {
 			JOptionPane.showMessageDialog(null, "Error while loading dataset");
 		}
 		connection = sqlConnection.dbConnector();
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 741, 423);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -146,7 +146,7 @@ public class EmployeeAdd extends JFrame {
 					pst.setString(6, saglik.getText());
 					pst.setString(7, ((JTextField)guvenlik.getDateEditor().getUiComponent()).getText());
 					pst.execute();
-					JOptionPane.showMessageDialog(null, ad.getText() + " added successfully");
+					JOptionPane.showMessageDialog(null, ad.getText() + "added successfully");
 					pst.close();
 					
 				}catch(Exception e){

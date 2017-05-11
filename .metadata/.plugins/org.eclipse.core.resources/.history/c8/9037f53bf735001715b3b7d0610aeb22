@@ -1,0 +1,72 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Randevu extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Randevu frame = new Randevu(-1);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	Connection connection = null;
+	/**
+	 * Create the frame.
+	 */
+	public Randevu(int x) {
+		connection = sqlConnection.dbConnector();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+	}
+	private int otomatikAnalistBelirle(int x){
+		connection = sqlConnection.dbConnector();
+		try{
+			int count = 0;
+			String queryGet = "select * from Employee where cId =?";
+			PreparedStatement pst=connection.prepareStatement(queryGet);
+			pst.setInt(1, x);
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()){
+				count++;
+			}
+			rs.close();
+			pst.close();
+			String query = "select * from Analyst where musait=? and yetkinlik<=? ";
+			PreparedStatement pst2=connection.prepareStatement(query);
+			pst2.setInt(1, 1);
+			pst2.setInt(2,count);
+			if(rs.next()){
+				JOptionPane.showMessageDialog(null, "Reservation arranged succesfully");
+			}else{
+				JOptionPane.showMessageDialog(null, "There is no avaible analysts right now");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return 0;
+		}
+	}
+}

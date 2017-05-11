@@ -81,7 +81,6 @@ public class Company extends JFrame {
 		JButton btnArrangeReservation = new JButton("Arrange Reservation");
 		btnArrangeReservation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Randevu rande = new Randevu(x);
 			}
 		});
 		btnArrangeReservation.setBounds(142, 193, 169, 23);

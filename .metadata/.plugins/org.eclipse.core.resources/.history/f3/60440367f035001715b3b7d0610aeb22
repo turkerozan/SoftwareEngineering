@@ -48,7 +48,7 @@ public class Login {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 310, 214);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnLogin = new JButton("Login");
@@ -108,8 +108,6 @@ public class Login {
 		JButton btnCreateAccount = new JButton("Create Account");
 		btnCreateAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CreateAcc cAcc = new CreateAcc();
-				cAcc.setVisible(true);
 			}
 		});
 		btnCreateAccount.setBackground(Color.LIGHT_GRAY);
