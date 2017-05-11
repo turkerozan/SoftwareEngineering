@@ -12,7 +12,7 @@ public class sqlConnection {
 		try{
 			Class.forName("org.sqlite.JDBC");
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\ozant\\Documents\\GitHub\\SoftwareEngineering\\SoftwareProject\\database\\OSGB.sqlite");
-			JOptionPane.showMessageDialog(null, "Succesfully Connected");
+			//JOptionPane.showMessageDialog(null, "Succesfully Connected");
 			
 			return conn;
 		}catch(Exception e){

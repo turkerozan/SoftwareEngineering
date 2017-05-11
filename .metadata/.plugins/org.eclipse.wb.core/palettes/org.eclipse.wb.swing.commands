@@ -4,4 +4,31 @@
 		id="org.eclipse.wb.swing.components javax.swing.JTextArea"
 		category="org.eclipse.wb.swing.components"
 		nextEntry="org.eclipse.wb.swing.components javax.swing.JFormattedTextField"/>
+	<addCategory
+		id="jcalendar-1.4_1494465806565"
+		name="jcalendar-1.4"
+		description="Container with import elements from C:/Users/ozant/Documents/GitHub/SoftwareEngineering/SoftwareProject/sqlLib/jcalendar-1.4.jar"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="com.toedter.calendar.JCalendar_1494465806565"
+		name="JCalendar"
+		description="Custom component: com.toedter.calendar.JCalendar"
+		visible="true"
+		class="com.toedter.calendar.JCalendar"
+		category="jcalendar-1.4_1494465806565"/>
+	<addComponent
+		id="com.toedter.calendar.JDateChooser_1494465806565"
+		name="JDateChooser"
+		description="Custom component: com.toedter.calendar.JDateChooser"
+		visible="true"
+		class="com.toedter.calendar.JDateChooser"
+		category="jcalendar-1.4_1494465806565"/>
+	<moveEntry
+		id="com.toedter.calendar.JCalendar_1494465806565"
+		category="org.eclipse.wb.swing.components"/>
+	<moveEntry
+		id="com.toedter.calendar.JDateChooser_1494465806565"
+		category="org.eclipse.wb.swing.components"
+		nextEntry="org.eclipse.wb.swing.components javax.swing.JSpinner"/>
 </commands>
